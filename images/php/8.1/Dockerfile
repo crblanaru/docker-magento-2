@@ -92,6 +92,8 @@ COPY conf/php.ini $PHP_INI_DIR
 COPY conf/php-fpm.conf /usr/local/etc/
 COPY conf/www.conf /usr/local/etc/php-fpm.d/
 
+COPY src /var/www/html
+
 # USER app:app
 VOLUME /var/www
 WORKDIR /var/www/html
