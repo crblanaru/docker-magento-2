@@ -3,8 +3,8 @@ MAINTAINER Mark Shust <mark@shust.com>
 
 ARG APP_ID=1000
 
-RUN addgroup -g "$APP_ID" app \
- && adduser -G app -u "$APP_ID" -h /var/www -s /bin/bash -S app
+# RUN addgroup -g "$APP_ID" app \
+#  && adduser -G app -u "$APP_ID" -h /var/www -s /bin/bash -S app
 RUN touch /var/run/nginx.pid
 RUN mkdir /sock
 
@@ -18,9 +18,9 @@ RUN apk add --no-cache \
 
 ARG TARGETARCH
 
-RUN cd /usr/local/bin/ \
-  && curl -L https://github.com/FiloSottile/mkcert/releases/download/v1.4.3/mkcert-v1.4.3-linux-$TARGETARCH -o mkcert \
-  && chmod +x mkcert
+# RUN cd /usr/local/bin/ \
+#   && curl -L https://github.com/FiloSottile/mkcert/releases/download/v1.4.3/mkcert-v1.4.3-linux-$TARGETARCH -o mkcert \
+#   && chmod +x mkcert
 
 COPY ./images/nginx/1.18/conf/nginx.conf /etc/nginx/
 COPY ./images/nginx/1.18/conf/default.conf /etc/nginx/conf.d/
