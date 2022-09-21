@@ -12,7 +12,7 @@ pipeline {
 
             steps {
                 echo 'testing python App'
-                dir('app/tests'){ #create directory relatvie to root
+                dir('tests'){ //create directory relatvie to root
                     // The AUTH_TOKEN and PROJECT should be set from your Jenkins setup
                     sh 'export GIT_BRANCH'
                     sh 'export AUTH_TOKEN'
