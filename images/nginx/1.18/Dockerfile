@@ -13,8 +13,8 @@ RUN apk add --no-cache \
   nss-tools \
   openssl
 
-RUN mkdir /etc/nginx/certs \
-  && echo -e "US\n\n\n\n\n\n\n" | openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/certs/nginx.key -out /etc/nginx/certs/nginx.crt
+# # RUN mkdir /etc/nginx/certs \
+#   && echo -e "US\n\n\n\n\n\n\n" | openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/nginx/certs/nginx.key -out /etc/nginx/certs/nginx.crt
 
 ARG TARGETARCH
 
@@ -28,7 +28,7 @@ COPY ./images/nginx/1.18/conf/default.conf /etc/nginx/conf.d/
 RUN mkdir -p /etc/nginx/html /var/www/html 
   # && chown -R app:app /etc/nginx /var/www /var/cache/nginx /var/run/nginx.pid /sock
 
-EXPOSE 8443
+EXPOSE 8080
 
 # USER app:app
 
