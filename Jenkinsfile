@@ -1,33 +1,29 @@
 pipeline {
-   agent none
-
-   stages {
-
-        stage('app test') {
-            when {
-                branch 'feature-*'
-                //     changeset '**/app/**'
-            }
-            agent any
-
-            steps {
-                echo 'testing python App'
-                dir('tests'){ //create directory relatvie to root
-                    // The AUTH_TOKEN and PROJECT should be set from your Jenkins setup
-                    sh 'export GIT_BRANCH'
-                    sh 'export AUTH_TOKEN'
-                    sh 'export PROJECT'
-                    sh 'export BUNNY_URL_API'
-                    sh 'echo Happy birthday!'
-                    // sh 'bash ./bunnycli.sh' #diff command in sh 
-                }
-            }
+  agent none
+  stages {
+    stage('app test') {
+      agent any
+      when {
+        branch 'feature-*'
+      }
+      steps {
+        echo 'testing python App'
+        dir(path: 'tests') {
+          sh 'export GIT_BRANCH'
+          sh 'export AUTH_TOKEN'
+          sh 'export PROJECT'
+          sh 'export BUNNY_URL_API'
+          sh 'echo Happy birthday!'
         }
 
+      }
     }
-    post {
-        always {
-            echo 'Pipeline finished executing'
-        }
+
+  }
+  post {
+    always {
+      echo 'Pipeline finished executing'
     }
+
+  }
 }
