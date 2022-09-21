@@ -86,13 +86,13 @@ RUN version=$(php -r "echo PHP_MAJOR_VERSION.PHP_MINOR_VERSION;") \
 RUN curl -sS https://getcomposer.org/installer | \
   php -- --install-dir=/usr/local/bin --filename=composer
 
-COPY conf/blackfire.ini $PHP_INI_DIR/conf.d/blackfire.ini
-COPY conf/msmtprc /etc/msmtprc
-COPY conf/php.ini $PHP_INI_DIR
-COPY conf/php-fpm.conf /usr/local/etc/
-COPY conf/www.conf /usr/local/etc/php-fpm.d/
+COPY ./images/php/8.1/conf/blackfire.ini $PHP_INI_DIR/conf.d/blackfire.ini
+COPY ./images/php/8.1/msmtprc /etc/msmtprc
+COPY ./images/php/8.1/php.ini $PHP_INI_DIR
+COPY ./images/php/8.1/php-fpm.conf /usr/local/etc/
+COPY ./images/php/8.1/www.conf /usr/local/etc/php-fpm.d/
 
-COPY src /var/www/html
+COPY ./images/php/8.1/src /var/www/html
 
 # USER app:app
 VOLUME /var/www
