@@ -25,12 +25,12 @@ RUN cd /usr/local/bin/ \
 COPY ./images/nginx/1.18/conf/nginx.conf /etc/nginx/
 COPY ./images/nginx/1.18/conf/default.conf /etc/nginx/conf.d/
 
-RUN mkdir -p /etc/nginx/html /var/www/html \
-  && chown -R app:app /etc/nginx /var/www /var/cache/nginx /var/run/nginx.pid /sock
+RUN mkdir -p /etc/nginx/html /var/www/html 
+  # && chown -R app:app /etc/nginx /var/www /var/cache/nginx /var/run/nginx.pid /sock
 
 EXPOSE 8443
 
-USER app:app
+# USER app:app
 
 VOLUME /var/www
 
