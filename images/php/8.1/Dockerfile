@@ -1,7 +1,7 @@
 FROM php:8.1-fpm-bullseye
 MAINTAINER Mark Shust <mark@shust.com>
 
-ARG APP_ID=1000
+# ARG APP_ID=1000
 # RUN groupadd -g "$APP_ID" app \
   # && useradd -g "$APP_ID" -u "$APP_ID" -d /var/www -s /bin/bash app
 
