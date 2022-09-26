@@ -2,11 +2,9 @@ FROM php:8.1-fpm-bullseye
 MAINTAINER Mark Shust <mark@shust.com>
 
 ARG APP_ID=1000
-RUN groupadd -g "$APP_ID" app \
-  && useradd -g "$APP_ID" -u "$APP_ID" -d /var/www -s /bin/bash app
+RUN groupadd -g "$APP_ID" app && useradd -g "$APP_ID" -u "$APP_ID" -d /var/www -s /bin/bash app
 
-RUN mkdir -p /etc/nginx/html /var/www/html /sock 
-  && chown -R app:app /etc/nginx /var/www /usr/local/etc/php/conf.d /sock
+RUN mkdir -p /etc/nginx/html /var/www/html /sock && chown -R app:app /etc/nginx /var/www /usr/local/etc/php/conf.d /sock
 
 RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
 
