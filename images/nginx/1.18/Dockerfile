@@ -1,10 +1,10 @@
 FROM nginx:1.18-alpine
 MAINTAINER Mark Shust <mark@shust.com>
 
-# ARG APP_ID=1000
+ARG APP_ID=1000
 
-# RUN addgroup -g "$APP_ID" app \
-#  && adduser -G app -u "$APP_ID" -h /var/www -s /bin/bash -S app
+RUN addgroup -g "$APP_ID" app \
+  && adduser -G app -u "$APP_ID" -h /var/www -s /bin/bash -S app
 RUN touch /var/run/nginx.pid
 RUN mkdir /sock
 
@@ -30,7 +30,7 @@ RUN mkdir -p /etc/nginx/html /var/www/html
 
 EXPOSE 8080
 
-# USER app:app
+USER app:app
 
 VOLUME /var/www
 
