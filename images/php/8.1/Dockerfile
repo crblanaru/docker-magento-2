@@ -90,7 +90,6 @@ COPY ./images/php/8.1/conf/blackfire.ini $PHP_INI_DIR/conf.d/blackfire.ini
 COPY ./images/php/8.1/conf/msmtprc /etc/msmtprc
 COPY ./images/php/8.1/conf/php.ini $PHP_INI_DIR
 COPY ./images/php/8.1/conf/php-fpm.conf /usr/local/etc/
-COPY ./images/php/8.1/conf/www.conf /usr/local/etc/php-fpm.d/
 
 COPY ./images/php/8.1/src /var/www/html
 
